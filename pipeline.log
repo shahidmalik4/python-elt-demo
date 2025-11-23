@@ -1,0 +1,12 @@
+2025-11-23 19:46:05,395 - pipeline_logger - INFO - Attempting to connect to PostgreSQL...
+2025-11-23 19:46:05,454 - pipeline_logger - INFO - Database connection verified.
+2025-11-23 19:46:05,454 - pipeline_logger - INFO - Starting raw data extraction from database tables.
+2025-11-23 19:46:05,472 - pipeline_logger - INFO - Extracted 1000 records from 'raw_orders'.
+2025-11-23 19:46:05,472 - pipeline_logger - INFO - Extracted 100 records from 'raw_customers'.
+2025-11-23 19:46:05,472 - pipeline_logger - INFO - Extraction successful. DataFrames are loaded into memory.
+2025-11-23 19:48:41,690 - pipeline_logger - INFO - Attempting to connect to PostgreSQL...
+2025-11-23 19:48:41,748 - pipeline_logger - INFO - Database connection verified.
+2025-11-23 19:48:41,748 - pipeline_logger - INFO - Starting raw data extraction from database tables.
+2025-11-23 19:48:41,765 - pipeline_logger - INFO - Extracted 1000 records from 'raw_orders'.
+2025-11-23 19:48:41,765 - pipeline_logger - INFO - Extracted 100 records from 'raw_customers'.
+2025-11-23 19:48:41,765 - pipeline_logger - INFO - Extraction successful. DataFrames are loaded into memory.
