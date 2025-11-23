@@ -1,6 +1,8 @@
 # 📊 E-Commerce Analytics ELT Pipeline
 
-This repository hosts an Analytics Engineering (AE) project designed to simulate a production-ready Extract, Load, and Transform (ELT) data pipeline. The goal is to ingest raw, messy e-commerce sales and customer data from a PostgreSQL source, clean and validate it, and prepare a final dimensional model for reporting and business intelligence.
+This repository showcases a professional, Python-centric Extract, Load, and Transform (ELT) pipeline, designed as a comprehensive portfolio piece for an aspiring Analytics Engineer or Junior Data Engineer.
+
+The pipeline demonstrates mastery of data movement, infrastructure, and quality assurance by transforming raw, messy e-commerce data into a clean, analytical-ready dataset.
 
 ---
 
