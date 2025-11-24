@@ -3,7 +3,7 @@ import logging
 from dotenv import load_dotenv
 import pandas as pd
 from sqlalchemy import create_engine, text
-import sys # Import sys to access stdout/stderr
+import sys
 
 
 # Load environment variables from .env file
@@ -18,10 +18,9 @@ POSTGRES_PORT = os.getenv("POSTGRES_PORT")
 # Construct the database URL
 DATABASE_URL = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
-# --- ADVANCED LOGGING SETUP ---
 # Create a custom logger named 'pipeline_logger'
 logger = logging.getLogger('pipeline_logger')
-logger.setLevel(logging.INFO) # Set the minimum severity level to handle
+logger.setLevel(logging.INFO)
 
 # Define the format for all log messages
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -46,7 +45,6 @@ if not logger.handlers:
 
 def get_db_engine():
     """Initializes and returns a SQLAlchemy engine, handling connection errors."""
-    # Use the custom logger instead of the default logging functions
     logger.info("Attempting to connect to PostgreSQL...")
     try:
         engine = create_engine(DATABASE_URL)

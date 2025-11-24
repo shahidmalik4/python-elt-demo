@@ -10,3 +10,57 @@
 2025-11-23 19:48:41,765 - pipeline_logger - INFO - Extracted 1000 records from 'raw_orders'.
 2025-11-23 19:48:41,765 - pipeline_logger - INFO - Extracted 100 records from 'raw_customers'.
 2025-11-23 19:48:41,765 - pipeline_logger - INFO - Extraction successful. DataFrames are loaded into memory.
+2025-11-24 19:43:40,623 - pipeline_logger - INFO - --- Day 3: Transformation Pipeline Start ---
+2025-11-24 19:43:40,624 - pipeline_logger - INFO - Attempting to connect to PostgreSQL...
+2025-11-24 19:43:40,771 - pipeline_logger - INFO - Database connection verified.
+2025-11-24 19:43:40,772 - pipeline_logger - INFO - Starting raw data extraction from database tables.
+2025-11-24 19:43:40,797 - pipeline_logger - INFO - Extracted 1000 records from 'raw_orders'.
+2025-11-24 19:43:40,797 - pipeline_logger - INFO - Extracted 100 records from 'raw_customers'.
+2025-11-24 19:43:40,797 - pipeline_logger - INFO - Starting transformation: Merging and cleaning raw data.
+2025-11-24 19:43:40,806 - pipeline_logger - INFO - Merged DataFrames. Total rows: 1000
+2025-11-24 19:43:40,808 - pipeline_logger - INFO - Removed 1 duplicate rows based on 'order_id'.
+2025-11-24 19:43:40,811 - pipeline_logger - INFO - Imputed missing quantities with 1.
+2025-11-24 19:43:40,811 - pipeline_logger - INFO - Imputed missing regions with 'Unknown'.
+2025-11-24 19:43:40,812 - pipeline_logger - INFO - Marked orders with bad foreign keys as 'Invalid Customer'.
+2025-11-24 19:43:40,817 - pipeline_logger - INFO - Completed cleaning and transformation. Proceeding to Pydantic validation.
+2025-11-24 19:43:40,828 - pipeline_logger - INFO - Transformation complete. Final clean rows: 999
+2025-11-24 19:43:40,828 - pipeline_logger - INFO - Transformation successful. Final DataFrame is ready.
+2025-11-24 19:49:43,751 - pipeline_logger - INFO - --- Day 4: Full ELT Pipeline Start (E -> T -> L) ---
+2025-11-24 19:49:43,751 - pipeline_logger - INFO - Attempting to connect to PostgreSQL...
+2025-11-24 19:49:43,810 - pipeline_logger - INFO - Database connection verified.
+2025-11-24 19:49:43,810 - pipeline_logger - INFO - Starting raw data extraction from database tables.
+2025-11-24 19:49:43,827 - pipeline_logger - INFO - Extracted 1000 records from 'raw_orders'.
+2025-11-24 19:49:43,827 - pipeline_logger - INFO - Extracted 100 records from 'raw_customers'.
+2025-11-24 19:49:43,827 - pipeline_logger - INFO - Starting transformation: Merging and cleaning raw data.
+2025-11-24 19:49:43,830 - pipeline_logger - INFO - Merged DataFrames. Total rows: 1000
+2025-11-24 19:49:43,831 - pipeline_logger - INFO - Removed 1 duplicate rows based on 'order_id'.
+2025-11-24 19:49:43,831 - pipeline_logger - INFO - Imputed missing quantities with 1.
+2025-11-24 19:49:43,832 - pipeline_logger - INFO - Imputed missing regions with 'Unknown'.
+2025-11-24 19:49:43,832 - pipeline_logger - INFO - Marked orders with bad foreign keys as 'Invalid Customer'.
+2025-11-24 19:49:43,834 - pipeline_logger - INFO - Completed cleaning and transformation. Proceeding to Pydantic validation.
+2025-11-24 19:49:43,846 - pipeline_logger - INFO - Transformation complete. Final clean rows: 999
+2025-11-24 19:49:43,846 - pipeline_logger - INFO - Starting Load phase: Preparing to load 999 records into 'analytics_sales'.
+2025-11-24 19:49:43,848 - pipeline_logger - WARNING - Could not TRUNCATE analytics_sales. It will be created on load if it doesn't exist. Error: (psycopg2.errors.UndefinedTable) relation "analytics_sales" does not exist
+
+[SQL: TRUNCATE TABLE analytics_sales;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-11-24 19:49:44,062 - pipeline_logger - INFO - Load SUCCESS: 999 records loaded into 'analytics_sales'.
+2025-11-24 19:49:44,062 - pipeline_logger - INFO - --- Full ELT Pipeline Run COMPLETE ---
+2025-11-24 20:07:48,697 - pipeline_logger - INFO - --- Day 4: Full ELT Pipeline Start (E -> T -> L) ---
+2025-11-24 20:07:48,697 - pipeline_logger - INFO - Attempting to connect to PostgreSQL...
+2025-11-24 20:07:48,756 - pipeline_logger - INFO - Database connection verified.
+2025-11-24 20:07:48,756 - pipeline_logger - INFO - Starting raw data extraction from database tables.
+2025-11-24 20:07:48,773 - pipeline_logger - INFO - Extracted 1000 records from 'raw_orders'.
+2025-11-24 20:07:48,774 - pipeline_logger - INFO - Extracted 100 records from 'raw_customers'.
+2025-11-24 20:07:48,774 - pipeline_logger - INFO - Starting transformation: Merging and cleaning raw data.
+2025-11-24 20:07:48,776 - pipeline_logger - INFO - Merged DataFrames. Total rows: 1000
+2025-11-24 20:07:48,777 - pipeline_logger - INFO - Removed 1 duplicate rows based on 'order_id'.
+2025-11-24 20:07:48,777 - pipeline_logger - INFO - Imputed missing quantities with 1.
+2025-11-24 20:07:48,778 - pipeline_logger - INFO - Imputed missing regions with 'Unknown'.
+2025-11-24 20:07:48,778 - pipeline_logger - INFO - Marked orders with bad foreign keys as 'Invalid Customer'.
+2025-11-24 20:07:48,780 - pipeline_logger - INFO - Completed cleaning and transformation. Proceeding to Pydantic validation.
+2025-11-24 20:07:48,791 - pipeline_logger - INFO - Transformation complete. Final clean rows: 999
+2025-11-24 20:07:48,791 - pipeline_logger - INFO - Starting Load phase: Preparing to load 999 records into 'analytics_sales'.
+2025-11-24 20:07:48,818 - pipeline_logger - INFO - Successfully truncated old data from analytics_sales.
+2025-11-24 20:07:49,003 - pipeline_logger - INFO - Load SUCCESS: 999 records loaded into 'analytics_sales'.
+2025-11-24 20:07:49,003 - pipeline_logger - INFO - --- Full ELT Pipeline Run COMPLETE ---

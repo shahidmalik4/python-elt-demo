@@ -6,8 +6,6 @@ import pandas as pd
 import random
 from datetime import datetime, timedelta
 
-# --- Configuration (Load from environment variables/defaults) ---
-# NOTE: Update these defaults if your PostgreSQL setup uses different credentials.
 POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "postgres")
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
@@ -18,30 +16,24 @@ DATABASE_URL = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POST
 NUM_CUSTOMERS = 100
 NUM_ORDERS = 1000
 
-# --- Setup ---
 # Configure logging to show timestamps and severity level
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 fake = Faker()
 
 def create_database_engine():
-    """Initializes and returns a SQLAlchemy engine."""
     try:
         engine = create_engine(DATABASE_URL)
-        # Attempt to connect to verify the credentials
         with engine.connect() as connection:
             connection.execute(text("SELECT 1"))
         logging.info("Successfully connected to PostgreSQL.")
         return engine
     except Exception as e:
         logging.error(f"Failed to connect to PostgreSQL at {POSTGRES_HOST}. Error: {e}")
-        # Crucial to raise an exception to halt the script if the DB connection fails
         raise ConnectionError("Database connection failed. Check credentials, host, and port.")
 
 def create_raw_tables(engine):
-    """Drops existing tables and creates the raw tables with explicit DDL."""
     logging.info("Defining and creating raw tables in PostgreSQL.")
     
-    # DDL for Raw Customers Table
     customers_ddl = """
     DROP TABLE IF EXISTS raw_customers;
     CREATE TABLE raw_customers (
@@ -51,8 +43,7 @@ def create_raw_tables(engine):
         email_address VARCHAR(100)
     );
     """
-    
-    # DDL for Raw Orders Table
+
     orders_ddl = """
     DROP TABLE IF EXISTS raw_orders;
     CREATE TABLE raw_orders (
@@ -65,21 +56,18 @@ def create_raw_tables(engine):
     """
     
     with engine.connect() as connection:
-        # Execute DDL statements
         connection.execute(text(customers_ddl))
         connection.execute(text(orders_ddl))
         connection.commit()
     logging.info("Tables 'raw_customers' and 'raw_orders' created successfully.")
 
 def generate_customers(engine):
-    """Generates mock customer data and loads it into the 'raw_customers' table."""
     logging.info(f"Generating {NUM_CUSTOMERS} customer records.")
     
     customers = []
     for i in range(1, NUM_CUSTOMERS + 1):
         customer_key = f"CUST_{i:03d}"
         
-        # Introduce a null region for quality check practice
         region = fake.country() if random.random() > 0.1 else None 
         
         customers.append({
@@ -95,29 +83,23 @@ def generate_customers(engine):
     df_customers.to_sql('raw_customers', engine, if_exists='append', index=False)
     logging.info(f"Successfully loaded {len(df_customers)} records into 'raw_customers'.")
     
-    # Return the list of keys for use in generating orders (to ensure most are valid FKs)
     return [c['customer_key'] for c in customers]
 
 def generate_orders(engine, customer_keys):
-    """Generates mock order data including intentional errors, and loads it into 'raw_orders' table."""
     logging.info(f"Generating {NUM_ORDERS} order records, including 'dirty' data.")
 
     orders = []
     
     for i in range(1, NUM_ORDERS + 1):
-        # Intentional Data Quality Issue 1: Duplicate order_id (Pytest/Pandas check)
         order_id = 1000 + i if i != 50 else 1049 
-        
-        # Intentional Data Quality Issue 2: Bad foreign key (Data Integrity check)
+
         if i == 100:
              customer_key = "CUST_999" 
         else:
              customer_key = random.choice(customer_keys) 
-        
-        # Intentional Data Quality Issue 3: Negative price (Pydantic check)
+
         raw_price = round(random.uniform(10, 500) * (1 if i != 200 else -1), 2)
-        
-        # Intentional Data Quality Issue 4: Null quantity (Pandas cleaning/fill check)
+
         quantity = random.randint(1, 5) if random.random() > 0.05 else None
         
         orders.append({
