@@ -81,7 +81,7 @@ This phase implemented the core data cleaning and quality enforcement layer, add
 
 ---
 
-### **Day 4: Loading and Automated Testing (Complete)**
+### **Day 4 & 5: Loading and Automated Testing (Complete)**
 
 This phase completes the ELT loop by loading the clean data into the final reporting table and running an automated test suite to guarantee data integrity.
 
@@ -89,6 +89,7 @@ This phase completes the ELT loop by loading the clean data into the final repor
 |----------------|----------|------------|
 | `loader.py`    | Orchestrates the full E-T-L pipeline and loads validated data into the `analytics_sales` table. | Pipeline Orchestration, Data Loading, Error Handling |
 | `test_pipeline.py` | Runs Pytest checks: no duplicates, no negative values, valid foreign keys, correct row counts. | Automated Testing, Data Validation |
+| `test_cleaner.py` | Unit Test: Uses Pytest with mock Pandas DataFrames to perform fast, isolated tests on the core logic in cleaner.py, ensuring functions work reliably without database access. | Unit Testing, Test Isolation, Mocking Data |
 
 ---
 
@@ -121,7 +122,10 @@ python generate_source_data.py
 python loader.py
 ```
 
-
+### **6. Run Automated Data Validation (QA)**
+```bash
+pytest
+```
 
 
 
