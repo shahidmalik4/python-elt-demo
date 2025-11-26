@@ -6,10 +6,6 @@ numpy
 SQLAlchemy
 psycopg2-binary
 
-# API Framework
-fastapi
-uvicorn[standard]
-
 # Data Validation
 pydantic
 
