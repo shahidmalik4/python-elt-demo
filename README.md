@@ -81,7 +81,9 @@ pytest
 ```
 Tests focus on data correctness, not performance.
 
+---
 
+## Feel free to fork it, break it, and experiment 🚀
 
 
 
