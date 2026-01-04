@@ -5,8 +5,6 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 import sys
 
-
-# Load environment variables from .env file
 load_dotenv() 
 
 POSTGRES_USER = os.getenv("POSTGRES_USER")
