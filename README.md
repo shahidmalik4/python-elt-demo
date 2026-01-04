@@ -7,7 +7,7 @@ It is not production-ready and not intended for real-world deployment.
 Instead, the goal is to:
 - Help data analysts understand how ELT/ETL pipelines work
 - Demonstrate data cleaning, validation, and testing concepts
-- Show how analytics-ready tables can be built using Python, Pandas, and SQL
+- Show how analytics-ready tables can be built using **Python**, **Pandas**, and **SQL**
 
 ---
 
@@ -16,11 +16,11 @@ Instead, the goal is to:
 - Extracting data from a relational database
 - Working with messy, imperfect source data
 - Cleaning, deduplicating, and transforming data
-- Schema validation using Pydantic
+- Schema validation using **Pydantic**
 - Simple feature engineering for analytics
 - Loading clean data into an analytics table
-- Writing tests for data pipelines using pytest
-- Using Docker for a reproducible local database
+- Writing tests for data pipelines using **pytest**
+- Using **Docker** for a reproducible local database
 
 All logic is written in plain Python, intentionally avoiding complex frameworks.
 
