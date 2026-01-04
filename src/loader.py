@@ -3,8 +3,8 @@ from sqlalchemy import create_engine, text
 import pandas as pd
 from dotenv import load_dotenv
 
-from extractor import get_db_engine, extract_raw_data
-from cleaner import clean_and_transform
+from src.extractor import get_db_engine, extract_raw_data
+from src.cleaner import clean_and_transform
 
 load_dotenv()
 
