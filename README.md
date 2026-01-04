@@ -1,3 +1,21 @@
+# Python ELT Demo (Learning Project)
+
+This repository is a learning and demonstration project that shows how a simple ELT / ETL-style analytics pipeline can be built using plain Python, without relying on heavy data engineering frameworks.
+
+Note: This project is not production-ready and is intended for educational purposes only.
+
+The main goals of this project are to:
+
+Teach data analysts and beginners how ELT/ETL pipelines work
+
+Demonstrate data extraction, cleaning, validation, and transformation
+
+Show how analytics-ready tables can be built using Python, Pandas, and SQL
+
+Provide a simple, reproducible pipeline to experiment with
+
+
+
 # E-commerce Analytics ELT (Learning Project)
 
 This repository is a learning and demonstration project that shows how a simple ELT / ETL-style analytics pipeline can be built using plain Python, without relying on heavy data engineering frameworks.
