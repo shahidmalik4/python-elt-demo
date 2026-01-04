@@ -4,6 +4,24 @@ This repository showcases a professional, Python-centric Extract, Load, and Tran
 
 The pipeline demonstrates mastery of data movement, infrastructure, and quality assurance by transforming raw, messy e-commerce data into a clean, analytical-ready dataset.
 
+
+
+# E-commerce Analytics ELT (Learning Project)
+
+This repository is a learning and demonstration project that shows how an ELT / ETL-style analytics pipeline can be built using plain Python, without relying on heavy data engineering frameworks.
+
+It is not production-ready and not intended for real-world deployment.
+
+Instead, the goal is to:
+
+Help data analysts understand how ELT/ETL pipelines work
+
+Demonstrate data cleaning, validation, and testing concepts
+
+Show how analytics-ready tables can be built using Python, Pandas, and SQL
+
+
+
 ---
 
 ## Project Goal
