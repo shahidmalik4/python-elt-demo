@@ -13,17 +13,14 @@ Instead, the goal is to:
 
 ## What This Project Demonstrates
 
-✔ Extracting data from a relational database
-
-✔ Working with messy, imperfect source data
-
-✔ Cleaning, deduplicating, and transforming data
-
-✔ Schema validation using Pydantic
-✔ Simple feature engineering for analytics
-✔ Loading clean data into an analytics table
-✔ Writing tests for data pipelines using pytest
-✔ Using Docker for a reproducible local database
+- Extracting data from a relational database
+- Working with messy, imperfect source data
+- Cleaning, deduplicating, and transforming data
+- Schema validation using Pydantic
+- Simple feature engineering for analytics
+- Loading clean data into an analytics table
+- Writing tests for data pipelines using pytest
+- Using Docker for a reproducible local database
 
 All logic is written in plain Python, intentionally avoiding complex frameworks.
 
