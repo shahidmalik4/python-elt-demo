@@ -5,14 +5,14 @@ __pycache__/
 *.pyd
 
 venv/
-#env/
 .venv/
+
+#env/
 #.env/
+#.env
 
 .DS_Store
 Thumbs.db
-
-#.env
 
 .pytest_cache/
 .coverage
