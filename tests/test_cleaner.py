@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from datetime import datetime
-from schemas import CleanedOrder
+from src.schemas import CleanedOrder
 import logging
 
 

@@ -49,7 +49,6 @@ def clean_and_transform(df_orders, df_customers):
     
     logger.info("Completed cleaning and transformation. Proceeding to Pydantic validation.")
     
-
     records_to_validate = df_clean.to_dict('records')
     
     validated_records = []

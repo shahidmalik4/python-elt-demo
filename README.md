@@ -65,19 +65,22 @@ docker compose up -d
 
 ### **4. Generate Source Data**
 ```bash
-python generate_source_data.py
+python -m src.generate_source_data
 ```
+Note: This project uses a src/ layout.
+Always run commands from the project root directory.
+
 
 ### **5. Run the Full Pipeline (Extract → Transform → Load)**
 ```bash
-python loader.py
+python -m src.loader
 ```
 This will:
 - Extract raw data
 - Clean and validate it
 - Load an analytics-ready table
 
-### **6. Run Automated Data Validation**
+### **6. Run Tests**
 ```bash
 pytest
 ```

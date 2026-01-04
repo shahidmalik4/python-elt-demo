@@ -20,6 +20,7 @@ NUM_ORDERS = 1000
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 fake = Faker()
 
+
 def create_database_engine():
     try:
         engine = create_engine(DATABASE_URL)
@@ -30,6 +31,7 @@ def create_database_engine():
     except Exception as e:
         logging.error(f"Failed to connect to PostgreSQL at {POSTGRES_HOST}. Error: {e}")
         raise ConnectionError("Database connection failed. Check credentials, host, and port.")
+
 
 def create_raw_tables(engine):
     logging.info("Defining and creating raw tables in PostgreSQL.")
@@ -61,6 +63,7 @@ def create_raw_tables(engine):
         connection.commit()
     logging.info("Tables 'raw_customers' and 'raw_orders' created successfully.")
 
+
 def generate_customers(engine):
     logging.info(f"Generating {NUM_CUSTOMERS} customer records.")
     
@@ -84,6 +87,7 @@ def generate_customers(engine):
     logging.info(f"Successfully loaded {len(df_customers)} records into 'raw_customers'.")
     
     return [c['customer_key'] for c in customers]
+
 
 def generate_orders(engine, customer_keys):
     logging.info(f"Generating {NUM_ORDERS} order records, including 'dirty' data.")
