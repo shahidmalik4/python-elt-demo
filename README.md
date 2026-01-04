@@ -29,16 +29,18 @@ All logic is written in plain Python, intentionally avoiding complex frameworks.
 ## Project Structure
 
 ```bash
-.
-├── generate_source_data.py   # Generates fake, messy source data
-├── extractor.py              # Extracts raw data from PostgreSQL
-├── cleaner.py                # Cleans and transforms data
-├── schemas.py                # Data validation schemas (Pydantic)
-├── loader.py                 # Loads cleaned data back into the database
+ecommerce-analytics-elt/
+├── src/
+│   ├── loader.py                  # Loads cleaned data back into the database
+│   ├── cleaner.py                 # Cleans and transforms data
+│   ├── extractor.py               # Extracts raw data from PostgreSQL
+│   ├── schemas.py                 # Data validation schemas (Pydantic)
+│   └── generate_source_data.py    # Generates fake, messy source data               
 ├── tests/
 │   ├── test_cleaner.py       # Tests transformation logic
 │   └── test_pipeline.py      # End-to-end pipeline tests
 ├── docker-compose.yml        # Local PostgreSQL setup
+├── requirements.txt
 └── README.md
 ```
 ---
