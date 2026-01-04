@@ -44,7 +44,7 @@ def load_data(df_clean, engine):
 
 
 def run_elt_pipeline():
-    logger.info("--- Full ELT Pipeline Start (E -> T -> L) ---")
+    logger.info("--- Full ELT Pipeline Start (E -> L -> T) ---")
     
     try:
         # --- E: Extract ---
