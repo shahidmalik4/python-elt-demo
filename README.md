@@ -67,15 +67,16 @@ docker compose up -d
 ```bash
 python -m src.generate_source_data
 ```
-Note: This project uses a src/ layout.
-Always run commands from the project root directory.
+**Note**:
+- This project uses a src/ layout.
+- Always run commands from the project root directory.
 
 
 ### **5. Run the Full Pipeline (Extract → Transform → Load)**
 ```bash
 python -m src.loader
 ```
-This will:
+**This will:**
 - Extract raw data
 - Clean and validate it
 - Load an analytics-ready table
