@@ -1,7 +1,7 @@
 import logging
 import pandas as pd
 from pydantic import ValidationError
-from extractor import extract_raw_data, get_db_engine
+from src.extractor import extract_raw_data, get_db_engine
 from schemas import CleanedOrder 
 
 # Get the logger created in extractor.py
