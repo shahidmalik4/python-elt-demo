@@ -12,6 +12,10 @@ The main goals of this project are to:
 
 ---
 
+![sample_screenshot](img/screenshot.PNG)
+
+---
+
 ## What This Project Demonstrates
 
 - Extracting data from a relational database
@@ -92,5 +96,4 @@ Tests focus on data correctness, not performance.
 
 ## Feel free to fork it, break it, and experiment 🚀
 
-![sample_screenshot](img/screenshot.PNG)
 
